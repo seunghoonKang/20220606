@@ -4,15 +4,11 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { getRadioUtilityClass } from "@mui/material";
+import styled from "styled-components";
 
 function HeaderTag(props) {
-  const mystyle = {
-    borderBottom: "1px solid gray",
-    padding: "10px",
-    fontSize: "20px",
-  };
   return (
-    <header style={mystyle}>
+    <header className={props.className}>
       <h1>
         <a
           href="/"
@@ -28,6 +24,11 @@ function HeaderTag(props) {
     </header>
   );
 }
+
+const HeaderStyled = styled(HeaderTag)`
+  border-bottom: 1px solid gray;
+`;
+
 function NavlistTag(props) {
   //console.log(props.data);
   const list = props.data.map((e) => {
@@ -87,12 +88,12 @@ function App() {
 
   return (
     <div>
-      <HeaderTag
+      <HeaderStyled
         onSelect={() => {
           // mode = "WELCOME";
           setMode("WELCOME");
         }}
-      ></HeaderTag>
+      ></HeaderStyled>
       <NavlistTag
         data={topics}
         onSelect={(id) => {
