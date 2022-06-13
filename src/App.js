@@ -3,10 +3,16 @@ import "./App.css";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { getRadioUtilityClass } from "@mui/material";
 
 function HeaderTag(props) {
+  const mystyle = {
+    borderBottom: "1px solid gray",
+    padding: "10px",
+    fontSize: "20px",
+  };
   return (
-    <header>
+    <header style={mystyle}>
       <h1>
         <a
           href="/"
